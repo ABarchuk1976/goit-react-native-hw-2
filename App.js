@@ -1,17 +1,49 @@
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  TouchableWithoutFeedback,
+  Keyboard,
+  ImageBackground,
+  StyleSheet,
+  Text,
+} from 'react-native';
 
-import { RegistrationScreen } from './Screens/RegistrationScreen/RegistrationScreen';
+import * as Font from 'expo-font';
+import { AppLoading } from 'expo';
 
-export default function App() {
-  return <RegistrationScreen />;
-}
+import { RegistrationScreen } from './src/screens/RegistrationScreen/RegistrationScreen';
+
+// const loadFonts = async () => {
+//   await Font.loadAsync({
+//     'roboto-regular': require('./assets/fonts/roboto_regular.ttf'),
+//   });
+// };
+
+export const App = () => {
+  // const [isReady, setIsReady] = useState();
+
+  // if (!isReady) {
+  //   return (
+  //     <AppLoading startAsync={loadFonts} onFinish={() => setIsReady(true)} />
+  //   );
+  // }
+
+  return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <ImageBackground
+        style={styles.bgImage}
+        source={require('./assets/images/main-background.jpeg')}
+      >
+        {/* <RegistrationScreen /> */}
+        <StatusBar style="auto" />
+      </ImageBackground>
+    </TouchableWithoutFeedback>
+  );
+};
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  bgImage: {
+    width: '100%',
+    resizeMode: 'cover',
   },
 });
