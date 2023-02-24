@@ -5,7 +5,7 @@ import {
   Keyboard,
   ImageBackground,
   StyleSheet,
-  Text,
+  View,
 } from 'react-native';
 
 import * as Font from 'expo-font';
@@ -19,7 +19,7 @@ import { RegistrationScreen } from './src/screens/RegistrationScreen/Registratio
 //   });
 // };
 
-export const App = () => {
+export default function App() {
   // const [isReady, setIsReady] = useState();
 
   // if (!isReady) {
@@ -30,16 +30,18 @@ export const App = () => {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <ImageBackground
-        style={styles.bgImage}
-        source={require('./assets/images/main-background.jpeg')}
-      >
-        {/* <RegistrationScreen /> */}
-        <StatusBar style="auto" />
-      </ImageBackground>
+      <View>
+        <ImageBackground
+          style={styles.bgImage}
+          source={require('./assets/images/main-background.jpeg')}
+        >
+          {/* <RegistrationScreen /> */}
+        </ImageBackground>
+        {/* <StatusBar style="auto" /> */}
+      </View>
     </TouchableWithoutFeedback>
   );
-};
+}
 
 const styles = StyleSheet.create({
   bgImage: {
